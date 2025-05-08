@@ -1,0 +1,132 @@
+COMO JOGAR CHESS BRAWL?
+-----------------------
+
+Antes de tudo: Se você ainda não conseguiu instalar o chess_brawl no seu computador leia o documento README
+
+-----------------------
+
+CHESS BRAWL
+
+O que é?
+  - Chess Brawl é um game que busca simular partidas de xadrez com eventos positivos e negativos ocorrendo durante a partida. 
+    Sejam eles jogadas vantajosas ou gafes, ou até mesmo um ataque de fúria! No Chess Brawl, você é o juiz, que é responsável 
+    por cadastrar e registrar os eventos da partida. Organize torneios e veja quem se sairá melhor!
+    Feito em Python com módulo pygame e MySQL connector, permitindo uma interface agradável e um banco de dados local para
+    salvar seu progresso.
+
+  
+INSTRUÇÕES
+
+O menu principal
+
+-	A música inicia. A tela inicial do game pede que você pressione Enter no seu teclado para iniciar, logo aparecem as 
+        diversas opções
+
+Cadastrar Jogador
+
+-	Para você cadastrar um jogador escreva o nome dele e pressione Enter, logo após, crie o nick dele (dois jogadores 
+	não podem ter o mesmo nick), por fim, seu ranking.
+
+Listar Jogadores
+
+-       Listar jogadores serve para você ver todos os jogadores que foram cadastrados até o momento, para jogar, você 
+	precisa ter entre 4 e 8 jogadores e sempre um número par. Para que o pareamento das partidas possa acontecer.
+	Todos começam com 70 pontos
+
+Sortear Batalhas
+
+-	O sistema sorteia batalhas para serem jogadas no menu "Administrar Batalha Manual"
+
+Administrar Batalha Manual
+
+-	Utilize as setas para cima ou para baixo para selecionar a partida que você quer jogar individualmente e 
+	selecione-a com Enter.
+
+        * Dúvidas em como jogar? Confira o trecho "COMO JOGAR" mais abaixo.
+
+Executar Torneio Completo
+
+-	Dessa vez, o sorteio é feito automaticamente (para evitar que se saiba quais batalhas serão jogadas de antemão)
+	E começam as batalhas que são divididas entre Fase 1, em que as primeiras duplas se enfrentam, até chegar na 
+	fase final na qual o jogador que venceu terá de batalhar uma última vez e ser o campeão do CHESS BRAWL.	
+
+-	Ao final do torneio, um relatório das partidas aparece, indicando as pontuações (registradas tanto na memória
+	do Python quanto no banco de dados) e quais movimentos foram jogados em cada partida.
+
+	* Dúvidas em como jogar? Confira o trecho "COMO JOGAR" mais abaixo.
+
+Leaderboard
+
+-	O Leaderboard é a feature mais especial do Chess Brawl, pois demonstra a ligação do banco de dados MySQL e do
+	Python, nele, o usuário pode ver o nick de todos os jogadores, suas vitórias derrotas empates e partidas. Suas
+	pontuações e seus Winrates, que são definidos pelo cálculo VITÓRIA / PARTIDA * 100%, para que se tenha noção de
+	Em quantos % das partidas que o jogador já jogou ele venceu?
+
+Limpar Banco de Dados 
+
+-	Ao digitar CONFIRMAR o banco de dados será apagado para que você possa registrar novos jogadores e fazer
+	torneios com pessoas diferentes, ao contrário disso, se o jogo for fechado sem limpar o banco de dados
+	os jogadores já cadastrados poderão jogar, já que seus progressos foram devidamente salvos. 
+
+Sair 
+
+-	Sai do jogo
+
+
+
+COMO JOGAR
+----------
+
+Eventos
+
+-	Um evento consiste em um movimento, seja ele positivo ou negativo
+
+Lista de eventos
+
+	. Jogada original               = + 5 pontos
+	. Gafe                          = - 3 pontos
+	. Posicionamento vantajoso      = + 2 pontos
+	. Desrespeito ao adversário     = - 5 pontos
+	. Ataque de fúria               = - 7 pontos
+        
+Pontuações Vencedor
+
+	. Vencer uma partida            = + 30 pontos
+	. Blitz Match/vencer no empate  = + 2 pontos
+
+Pontuação Base
+	
+	. Todos começam com 70 pontos!
+
+Partidas
+
+-	Dois jogadores jogam contra si, o usuário-juíz tem de registrar se o jogador 1 cometeu algum evento
+	igualmente, para o jogador 2. Isto é feito ao digitar S ou N no seu teclado e pressionar Enter.
+
+-	Caso a pontuação entre os dois jogadores na partida seja igual o empate acontecerá e os jogadores
+	terão uma partida Blitz Match simulada, que consiste em uma partida de xadrez rápida. Quem vencer
+	ganhará dois pontos, o vencedor é escolhido aleatoriamente pelo sistema. 
+
+Cálculo da pontuação
+
+-	O cálculo da pontuação final funciona da seguinte forma:
+
+	Ex.: J1 cometeu Jogada Original (+5) e Posicionamento vantajoso (+2)
+				    + 5 + 2 = 7
+
+	     J2 cometeu Jogada Original (+5) e Ataque de fúria (-7)
+				    + 5 - 7 = -2
+
+Não houve empate entre ambas estas pontuações, então quem tiver a pontuação maior é o vencedor.
+
+		J1 é o vencedor pois sua pontuação é maior do que a do J2.
+
+Se for a primeira vez de ambos jogando, ambos tem a pontuação base de 70 pontos.
+
+	    J1 = 70 + 7 + 30  = 107
+            J2 = 70 - 2       = 68
+	
+O fato do cálculo das pontuações ser feito com base na pontuação que fazem dentro da partida, e não da que
+tem acumulada possibilita partidas justas entre jogadores de variadas pontuações.
+
+Este foi o tutorial de Chess Brawl, agora dê o play clicando no atalho Chess Brawl!
